@@ -790,9 +790,9 @@ class PdfViewer {
 
 		Carteira carteira = boleto.getTitulo().getContaBancaria().getCarteira();
 		
-		if (isNotNull(carteira) && isNotNull(carteira.getCodigo())) {
+		if (isNotNull(carteira) && isNotNull(carteira.getTipoCobranca())) {
 			
-			form.setField("txtFcCarteira", (carteira.getCodigo()==1)?"RG":"SR");
+			form.setField("txtFcCarteira", (carteira.getTipoCobranca().getSigla()));
 		}
 	}	
 

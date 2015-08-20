@@ -59,9 +59,19 @@ public enum TipoDeCobranca implements Serializable {
 	/**
 	 * <p>Tipo onde os títulos emitidos são sempre registrados no banco antes de seu vencimento ou pagamento.</p>
 	 */
-	COM_REGISTRO, 
+	COM_REGISTRO("RG"), 
 	/**
 	 * <p>Tipo onde os títulos emitidos só são registrados pelo banco quando são pagos.</p>
 	 */
-	SEM_REGISTRO;
+	SEM_REGISTRO("SR");
+	
+	private final String sigla;
+
+	private TipoDeCobranca(String sigla) {
+		this.sigla = sigla;
+	}
+	
+	public String getSigla() {
+		return sigla;
+	}
 }

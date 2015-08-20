@@ -239,6 +239,9 @@ abstract class AbstractCampoLivre extends AbstractLineOfFields implements CampoL
 						
 					case BANCO_SICREDI:
 						return AbstractCLSicredi.create(titulo);
+
+					case BANCOOB:
+						return AbstractCLBancoob.create(titulo);
 						
 					default:
 						/*

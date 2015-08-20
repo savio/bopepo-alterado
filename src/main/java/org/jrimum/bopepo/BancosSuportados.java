@@ -265,6 +265,16 @@ public enum BancosSuportados implements Serializable{
 	 */
 	BANCO_SICREDI("748", "01181521000155", "BANCO COOPERATIVO SICREDI S.A.", "Banco Mútiplo Cooperativo"),
 	
+	
+	/**
+	 * Tipo enumerado que representa o <strong>Bancoob</strong>, código de
+	 * compensação <strong><tt>756</tt></strong> <a
+	 * href="http://www.bancoob.com.br/">site</a>.
+	 * 
+	 * @since 0.2
+	 */
+	BANCOOB("756", "02038232000164", "BANCO COOPERATIVO DO BRASIL S.A. - BANCOOB", "Banco Comercial Cooperativo"),
+	
 	;
 
 	/**
@@ -311,6 +321,8 @@ public enum BancosSuportados implements Serializable{
 		suportados.put(BANCO_INTEMEDIUM.codigoDeCompensacaoBACEN, BANCO_INTEMEDIUM);
 
 		suportados.put(BANCO_SICREDI.codigoDeCompensacaoBACEN, BANCO_SICREDI);
+		
+		suportados.put(BANCOOB.codigoDeCompensacaoBACEN, BANCOOB);
 	}
 
 	/**
