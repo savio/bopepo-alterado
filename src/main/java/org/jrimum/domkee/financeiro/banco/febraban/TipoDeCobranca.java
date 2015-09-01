@@ -59,7 +59,7 @@ public enum TipoDeCobranca implements Serializable {
 	/**
 	 * <p>Tipo onde os títulos emitidos são sempre registrados no banco antes de seu vencimento ou pagamento.</p>
 	 */
-	COM_REGISTRO("RG"), 
+	COM_REGISTRO("1"), 
 	/**
 	 * <p>Tipo onde os títulos emitidos só são registrados pelo banco quando são pagos.</p>
 	 */

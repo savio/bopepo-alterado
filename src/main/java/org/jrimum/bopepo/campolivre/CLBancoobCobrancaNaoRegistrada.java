@@ -123,7 +123,7 @@ public class CLBancoobCobrancaNaoRegistrada extends AbstractCLBancoob{
 	/**
 	 * Tamanho do campo Constante = 2.
 	 */
-	protected static final Integer CONSTANT_LENGTH = Integer.valueOf(2);
+	protected static final Integer MODALIDADE_LENGTH = Integer.valueOf(2);
 	
 	/**
 	 * Valor do campo Constante = 2.
@@ -134,12 +134,6 @@ public class CLBancoobCobrancaNaoRegistrada extends AbstractCLBancoob{
 	 * Valor do campo Constante_Parcela = 1.
 	 */
 	protected static final Integer CONSTANT_PARCELA_VALUE = Integer.valueOf(1);
-	
-	/**
-	 * Constante em forma de campo {@link #CONSTANT_VALUE} e
-	 * {@link #CONSTANT_LENGTH}, valor escrito: "02".
-	 */
-	private static final Field<Integer> CONSTANT_FIELD = new Field<Integer>(CONSTANT_VALUE, CONSTANT_LENGTH, Filler.ZERO_LEFT);
 	
 	/**
 	 * Tamanho do campo Nosso Número = 8.
@@ -183,6 +177,8 @@ public class CLBancoobCobrancaNaoRegistrada extends AbstractCLBancoob{
 		
 		checkCarteiraNotNull(titulo);
 		checkCodigoDaCarteira(titulo);
+		checkModalidadeDaCarteiraNotNull(titulo);
+		checkCodigoModalidadeDaCarteira(titulo);
 		checkCodigoDaCarteiraMenorOuIgualQue(titulo, 9);
 		checkAgenciaNotNull(titulo);
 		checkCodigoDaAgencia(titulo);
@@ -199,7 +195,7 @@ public class CLBancoobCobrancaNaoRegistrada extends AbstractCLBancoob{
 		
 		this.add(new Field<Integer>(titulo.getContaBancaria().getCarteira().getCodigo(), CARTEIRA_LENGTH, Filler.ZERO_LEFT));
 		this.add(new Field<Integer>(titulo.getContaBancaria().getAgencia().getCodigo(), AGENCIA_LENGTH, Filler.ZERO_LEFT));
-		this.add(CONSTANT_FIELD);
+		this.add(new Field<Integer>(titulo.getContaBancaria().getModalidade().getCodigoAsInteger(), MODALIDADE_LENGTH, Filler.ZERO_LEFT));
 		this.add(new Field<Integer>(titulo.getContaBancaria().getNumeroDaConta().getCodigoDaConta(), CONTA_LENGTH, Filler.ZERO_LEFT));
 		this.add(new Field<String>(titulo.getNossoNumero(),NOSSO_NUMERO_LENGTH, Filler.ZERO_LEFT));
 

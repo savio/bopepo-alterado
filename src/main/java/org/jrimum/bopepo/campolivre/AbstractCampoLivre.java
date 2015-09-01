@@ -461,6 +461,42 @@ abstract class AbstractCampoLivre extends AbstractLineOfFields implements CampoL
 	
 	/**
 	 * <p>
+	 * Verifica se a modalidade da carteira da conta bancária do título não é nula caso contrário lança uma {@code
+	 * IllegalArgumentException}.
+	 * </p>
+	 * 
+	 * @param titulo
+	 * 
+	 * @since 0.2
+	 */
+	protected final static void checkModalidadeDaCarteiraNotNull(Titulo titulo){
+		
+		Objects.checkNotNull(titulo.getContaBancaria().getModalidade(), "A modalidade da carteira não pode ser nulo!");
+		
+	}
+	
+	/**
+	 * <p>
+	 * Verifica se o código da carteira da conta bancária do título não é nulo e
+	 * se é um número > 0, caso contrário lança uma {@code
+	 * IllegalArgumentException}.
+	 * </p>
+	 * 
+	 * @param titulo
+	 * 
+	 * @since 0.2
+	 */
+	protected final static void checkCodigoModalidadeDaCarteira(Titulo titulo){
+		
+		Objects.checkNotNull(titulo.getContaBancaria().getModalidade().getCodigo(), "Código da modalidade da carteira não pode ser nulo!");
+		
+		boolean expression = titulo.getContaBancaria().getModalidade().getCodigoAsInteger() > 0; 
+		
+		Objects.checkArgument(expression, format("Código da modalidade da carteira deve ser um número inteiro natural positivo e não [%s].",titulo.getContaBancaria().getModalidade().getCodigo()));
+	}
+	
+	/**
+	 * <p>
 	 * Verifica se o código da carteira da conta bancária do título é um número
 	 * menor que ou igual ao limite informado, caso contrário lança uma {@code
 	 * IllegalArgumentException}.
